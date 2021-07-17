@@ -3,13 +3,20 @@ package antoniosantos.calculator;
 
 import java.io.Serializable;
 
-public class Operation implements Serializable, Calculator {
+public class Operation implements Serializable {
+
+    public enum OP {
+        SUM,
+        SUB,
+        DIV,
+        MUL
+    }
 
     private final OP operation;
-    private final int a;
-    private final int b;
+    private final float a;
+    private final float b;
 
-    public Operation(OP operation, int a, int b) {
+    public Operation(OP operation, float a, float b) {
         this.operation = operation;
         this.a = a;
         this.b = b;
@@ -19,11 +26,11 @@ public class Operation implements Serializable, Calculator {
         return operation;
     }
 
-    public int getA() {
+    public float getA() {
         return a;
     }
 
-    public int getB() {
+    public float getB() {
         return b;
     }
 }

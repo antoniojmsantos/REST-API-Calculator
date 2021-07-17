@@ -3,22 +3,21 @@ package antoniosantos.calculator;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CalculatorController implements Calculator {
+public class CalculatorController {
 
-//    @Override
-//    public int calculate(OP operation, Integer a, Integer b){
-//        switch (operation){
-//            case SUM:
-//                return a+b;
-//            case SUB:
-//                return  a-b;
-//            case DIV:
-//                return a/b;
-//            case MUL:
-//                return a*b;
-//        }
-//
-//        return 0;
-//    }
+    public static float calculate(final Operation operation){
+        switch (operation.getOperation()){
+            case SUM:
+                return operation.getA() + operation.getB();
+            case SUB:
+                return  operation.getA() - operation.getB();
+            case DIV:
+                return operation.getA() / operation.getB();
+            case MUL:
+                return operation.getA() * operation.getB();
+        }
+
+        return 0;
+    }
 
 }
