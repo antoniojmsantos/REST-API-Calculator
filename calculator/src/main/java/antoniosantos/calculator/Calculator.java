@@ -8,5 +8,5 @@ public interface Calculator {
         MUL
     }
 
-     int calculate(OP operation, Integer a, Integer b);
+//     int calculate(OP operation, Integer a, Integer b);
 }
