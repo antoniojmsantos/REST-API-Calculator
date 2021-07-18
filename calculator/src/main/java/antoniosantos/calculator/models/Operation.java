@@ -31,6 +31,6 @@ public class Operation implements Serializable {
     @Override
     public String toString(){
 
-        return "Operation: " + operation + " | A = " + a + " | B = " + b + " |";
+        return operation + " | A = " + a + " | B = " + b + " |";
     }
 }
