@@ -51,12 +51,12 @@ public class RestControllerTest {
     }
 
     @Test
-    void testSum() throws Exception{
+    void testSub() throws Exception{
 
         Operation op = new Operation(OP.SUM, new BigDecimal(1), new BigDecimal(2));
         BigDecimal opResult = CalculatorController.calculate(op);
 
-        mvc.perform(get("/sum?a=2&b=1"))
+        mvc.perform(get("/sub?a=2&b=1"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].result").value(opResult));
