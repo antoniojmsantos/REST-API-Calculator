@@ -40,7 +40,7 @@ public class RestControllerTest {
     @Test
     void testSum() throws Exception{
 
-        Operation op = new Operation(OP.SUM, new BigDecimal(1), new BigDecimal(2));
+        Operation op = new Operation(OP.SUM, new BigDecimal(2), new BigDecimal(1));
         BigDecimal opResult = CalculatorController.calculate(op);
 
         mvc.perform(get("/sum?a=2&b=1"))
@@ -53,7 +53,7 @@ public class RestControllerTest {
     @Test
     void testSub() throws Exception{
 
-        Operation op = new Operation(OP.SUM, new BigDecimal(1), new BigDecimal(2));
+        Operation op = new Operation(OP.SUB, new BigDecimal(2), new BigDecimal(1));
         BigDecimal opResult = CalculatorController.calculate(op);
 
         mvc.perform(get("/sub?a=2&b=1"))
@@ -67,10 +67,10 @@ public class RestControllerTest {
     @Test
     void testDiv() throws Exception{
 
-        Operation op = new Operation(OP.SUM, new BigDecimal(1), new BigDecimal(2));
+        Operation op = new Operation(OP.DIV, new BigDecimal(2), new BigDecimal(0));
         BigDecimal opResult = CalculatorController.calculate(op);
 
-        mvc.perform(get("/sum?a=2&b=0"))
+        mvc.perform(get("/div?a=2&b=0"))
                 .andExpect(status().is4xxClientError()); //div por 0 retorna erro
 
     }
@@ -78,10 +78,10 @@ public class RestControllerTest {
     @Test
     void testMul() throws Exception{
 
-        Operation op = new Operation(OP.SUM, new BigDecimal(1), new BigDecimal(2));
+        Operation op = new Operation(OP.MUL, new BigDecimal(2), new BigDecimal(1));
         BigDecimal opResult = CalculatorController.calculate(op);
 
-        mvc.perform(get("/sum?a=2&b=1"))
+        mvc.perform(get("/mul?a=2&b=1"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].result").value(opResult));
