@@ -1,15 +1,18 @@
 package antoniosantos.rest.controllers;
 
+import antoniosantos.calculator.config.CalculatorConfig;
 import antoniosantos.calculator.models.OP;
 import antoniosantos.calculator.models.Operation;
-import antoniosantos.calculator.config.CalculatorConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.math.BigDecimal;
 import java.util.Collections;
 
