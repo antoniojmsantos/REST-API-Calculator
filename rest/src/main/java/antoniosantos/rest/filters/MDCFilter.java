@@ -20,20 +20,17 @@ public class MDCFilter extends OncePerRequestFilter {
 
     private final String responseHeader;
     private final String mdcTokenKey;
-    private final String mdcClientIpKey;
     private final String requestHeader;
 
     public MDCFilter() {
         responseHeader = MDCFilterConfig.DEFAULT_RESPONSE_TOKEN_HEADER;
         mdcTokenKey = MDCFilterConfig.DEFAULT_MDC_UUID_TOKEN_KEY;
-        mdcClientIpKey = MDCFilterConfig.DEFAULT_MDC_CLIENT_IP_KEY;
         requestHeader = null;
     }
 
-    public MDCFilter(final String responseHeader, final String mdcTokenKey, final String mdcClientIPKey, final String requestHeader) {
+    public MDCFilter(final String responseHeader, final String mdcTokenKey, final String requestHeader) {
         this.responseHeader = responseHeader;
         this.mdcTokenKey = mdcTokenKey;
-        this.mdcClientIpKey = mdcClientIPKey;
         this.requestHeader = requestHeader;
     }
 

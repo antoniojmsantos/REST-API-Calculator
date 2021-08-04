@@ -15,6 +15,7 @@ public class CalculatorConfig {
     public static final String DEFAULT_PARSING_QUEUE = "default_parser_q";
     public static final String ROUTING_KEY = "calculator";
 
+    // Declare the queue, the exchange, and the binding between rabbitmq messages
     @Bean
     public TopicExchange operationsExchange(){
         return new TopicExchange(EXCHANGE_NAME);
@@ -25,6 +26,7 @@ public class CalculatorConfig {
         return new Queue(DEFAULT_PARSING_QUEUE);
     }
 
+    // Assign that messages with ROUTING_KEY and are produced by EXCHANGE_NAME are consumed by DEFAULT_PARSING_QUEUE
     @Bean
     public Binding queueToExchangeBinding(){
         return BindingBuilder.bind(defaultParsingQueue()).to(operationsExchange()).with(ROUTING_KEY);

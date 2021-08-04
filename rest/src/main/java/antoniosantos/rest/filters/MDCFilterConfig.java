@@ -10,14 +10,13 @@ import org.springframework.context.annotation.Configuration;
 public class MDCFilterConfig {
     public static final String DEFAULT_RESPONSE_TOKEN_HEADER = "Response-Token";
     public static final String DEFAULT_MDC_UUID_TOKEN_KEY = "MDCFilter.UUID";
-    public static final String DEFAULT_MDC_CLIENT_IP_KEY = "MDCFilter.ClientIP";
 
     @Bean
     public FilterRegistrationBean<MDCFilter> servletRegistrationBean() {
-        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        final MDCFilter log4jMDCFilter = new MDCFilter(DEFAULT_RESPONSE_TOKEN_HEADER, DEFAULT_MDC_UUID_TOKEN_KEY, DEFAULT_MDC_CLIENT_IP_KEY, null);
+        final FilterRegistrationBean registrationBean = new FilterRegistrationBean(); // filter for every request (catched before the controller)
+        final MDCFilter log4jMDCFilter = new MDCFilter(DEFAULT_RESPONSE_TOKEN_HEADER, DEFAULT_MDC_UUID_TOKEN_KEY, null);
         registrationBean.setFilter(log4jMDCFilter);
-        registrationBean.setOrder(2);
+        registrationBean.setOrder(2); //2nd servlet filter?
         return registrationBean;
     }
 }

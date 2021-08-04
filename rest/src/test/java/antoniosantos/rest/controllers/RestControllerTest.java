@@ -56,7 +56,7 @@ public class RestControllerTest {
 
     @Test
     void testDiv() throws Exception{
-        
+
         mvc.perform(get("/div?a=2&b=0"))
                 .andExpect(status().is4xxClientError()); //div por 0 retorna erro
 
